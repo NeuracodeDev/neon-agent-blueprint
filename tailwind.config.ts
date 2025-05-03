@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,12 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'dark-blue': 'hsl(var(--agent-dark-blue))',
+				'neon-cyan': 'hsl(var(--agent-neon-cyan))',
+				'neon-blue': 'hsl(var(--agent-neon-blue))',
+				'neon-green': 'hsl(var(--agent-neon-green))',
+				'neon-red': 'hsl(var(--agent-neon-red))',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -89,6 +95,9 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out'
+			},
+			fontFamily: {
+				'mono': ['Roboto Mono', 'monospace']
 			}
 		}
 	},

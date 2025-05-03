@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,6 +50,15 @@
     --sidebar-border: 220 13% 91%;
 
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* Agent Plan Theme Colors */
+    --agent-dark-blue: 228 60% 6%;
+    --agent-neon-cyan: 187 100% 50%;
+    --agent-neon-blue: 199 100% 63%;
+    --agent-neon-green: 151 100% 50%;
+    --agent-neon-red: 0 100% 63%;
+    --agent-text-light: 203 31% 77%;
+    --agent-muted-text: 207 15% 58%;
   }
 
   .dark {
@@ -97,5 +107,150 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+/* Agent Plan Styles */
+@layer components {
+  /* Panel Styles */
+  .agent-plan-panel {
+    @apply bg-[#050818] shadow-lg;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.15), 
+                0 0 20px rgba(0, 240, 255, 0.05), 
+                0 0 30px rgba(0, 240, 255, 0.025);
+  }
+
+  .plan-header {
+    @apply bg-[#080A20];
+  }
+
+  .goal-text {
+    @apply text-[#00F0FF] font-medium;
+    text-shadow: 0 0 8px rgba(0, 240, 255, 0.5);
+  }
+
+  .text-muted-text {
+    @apply text-[#A0CAE8];
+  }
+
+  /* Step Styles */
+  .step-item {
+    @apply hover:bg-[#0A1025] cursor-pointer;
+  }
+
+  .hierarchy-line {
+    @apply absolute left-[0.6875rem] top-0 bottom-0 w-px bg-[#40C4FF]/30;
+    box-shadow: 0 0 5px rgba(64, 196, 255, 0.5);
+  }
+
+  .step-title {
+    @apply text-[#A0CAE8];
+  }
+
+  .step-current-title {
+    @apply text-[#40C4FF];
+    text-shadow: 0 0 8px rgba(64, 196, 255, 0.4);
+  }
+
+  .step-completed-title {
+    @apply text-[#A0CAE8]/80;
+  }
+
+  .step-failed-title {
+    @apply text-[#A0CAE8]/80;
+  }
+
+  .step-skipped-title {
+    @apply text-[#A0CAE8]/50;
+  }
+
+  /* Checkbox Styles */
+  .checkbox-container {
+    @apply relative;
+  }
+
+  .checkbox-unchecked {
+    @apply border-[#40C4FF]/60 bg-transparent;
+    box-shadow: 0 0 5px rgba(64, 196, 255, 0.3);
+  }
+
+  .checkbox-checked {
+    @apply border-[#00FF80] bg-[#00FF80]/20;
+    box-shadow: 0 0 5px rgba(0, 255, 128, 0.5);
+  }
+
+  .checkbox-mark {
+    @apply text-[#00FF80];
+  }
+
+  /* Status Icons */
+  .status-icon {
+    @apply ml-1;
+  }
+
+  .status-pending {
+    @apply text-gray-500;
+  }
+
+  .status-running {
+    @apply text-[#40C4FF];
+    filter: drop-shadow(0 0 3px rgba(64, 196, 255, 0.7));
+  }
+
+  .status-completed {
+    @apply text-[#00FF80];
+    filter: drop-shadow(0 0 3px rgba(0, 255, 128, 0.7));
+  }
+
+  .status-failed {
+    @apply text-[#FF4040];
+    filter: drop-shadow(0 0 3px rgba(255, 64, 64, 0.7));
+  }
+
+  .status-skipped {
+    @apply text-gray-500;
+  }
+
+  /* Button Styles */
+  .run-plan-btn {
+    @apply bg-[#00F0FF]/20 border border-[#00F0FF]/50 text-white;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+
+  .run-plan-btn:hover {
+    @apply bg-[#00F0FF]/30 border-[#00F0FF]/70;
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.5);
+  }
+
+  .generate-code-btn {
+    @apply bg-[#080A20] border border-[#40C4FF]/50 text-[#40C4FF];
+  }
+
+  .generate-code-btn:hover {
+    @apply bg-[#0A1025] border-[#40C4FF]/70 text-[#00F0FF];
+    box-shadow: 0 0 10px rgba(64, 196, 255, 0.3);
+  }
+
+  .reset-btn {
+    @apply text-[#40C4FF]/70 border border-transparent;
+  }
+
+  .reset-btn:hover {
+    @apply text-[#40C4FF] border-[#40C4FF]/30 bg-[#080A20];
+  }
+
+  /* Animations */
+  @keyframes pulse-glow {
+    0%, 100% { 
+      filter: drop-shadow(0 0 3px rgba(64, 196, 255, 0.5));
+    }
+    50% { 
+      filter: drop-shadow(0 0 10px rgba(64, 196, 255, 0.8));
+    }
+  }
+
+  .is-current {
+    animation: pulse-glow 2s ease-in-out infinite;
   }
 }
